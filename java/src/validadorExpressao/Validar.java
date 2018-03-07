@@ -27,12 +27,15 @@ public class Validar {
 		str = str.replaceAll("->", "-");
 		str = str.replaceAll("t", "T");
 		str = str.replaceAll("f", "F");
+		str = str.replaceAll("f", "F");
+		str = str.replaceAll("t", "T");
 		str = str.replaceAll("V", "v");
+		str = str.replaceAll("âˆ¨", "v");
 		str = str.replaceAll("∨", "v");
-		str = str.replaceAll("∧", "^");
-		str = str.replaceAll("ˆ", "^");
-		str = str.replaceAll("∼", "~");
-		str = str.replaceAll("˜", "~");
+		str = str.replaceAll("âˆ§", "^");
+		str = str.replaceAll("Ë†", "^");
+		str = str.replaceAll("âˆ¼", "~");
+		str = str.replaceAll("Ëœ", "~");
 	}
 	public void caracterInvalido() throws Exception{
 		String palavra[] = str.split("");
@@ -46,7 +49,7 @@ public class Validar {
 	}
 	public boolean expressao(){
 		int parenteses = 0, operador = 0, negacao = 0, variavel = 0; //para retornar true, todos tem que estar 0
-		StringTokenizer quebrador = new StringTokenizer (this.str, "~^∨-<", true);
+		StringTokenizer quebrador = new StringTokenizer (this.str, "~^âˆ¨-<", true);
 		while(quebrador.hasMoreTokens() == true){
 			String palavraQuebrada[] = quebrador.nextToken().split("");
 			for(int x = 0; x < palavraQuebrada.length; x++){
