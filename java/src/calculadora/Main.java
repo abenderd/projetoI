@@ -5,7 +5,7 @@ import java.util.Scanner;
 import validadorExpressao.Validar;
 
 public class Main {
-
+//MUDAR FILECODING PARA UTF-8 E DELIMITER PARA UNIX
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		start();
