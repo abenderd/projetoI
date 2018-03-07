@@ -36,6 +36,7 @@ public class Validar {
 		str = str.replaceAll("Ë†", "^");
 		str = str.replaceAll("âˆ¼", "~");
 		str = str.replaceAll("Ëœ", "~");
+		str = str.replaceAll("˜", "~");
 	}
 	public void caracterInvalido() throws Exception{
 		String palavra[] = str.split("");
