@@ -9,6 +9,8 @@ import javax.swing.JTextField;
 import validadorExpressao.Validar;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -36,6 +38,7 @@ public class CalculadoraView extends JPanel {
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textFieldEntrada.setText("");
+				textFieldSaida.setText("");
 			}
 		});
 		btnLimpar.setBounds(239, 258, 97, 25);
@@ -47,13 +50,20 @@ public class CalculadoraView extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				String expressao = textFieldEntrada.getText();
 				Validar validador = new Validar(expressao);
+				
 				try {
 					boolean ok = validador.valida();
 					String resultado = "" + ok;
 					System.out.println(ok);
 					textFieldSaida.setText(resultado);
+					
+					if (ok == false) {
+						JOptionPane.showMessageDialog(null, "Expressão inválida!", "", JOptionPane.ERROR_MESSAGE);
+					}
+					
 				} catch(Exception e) {
 					System.err.println(e);
+					JOptionPane.showMessageDialog(null, "Expressão inválida!", "", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
