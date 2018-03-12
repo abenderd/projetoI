@@ -50,24 +50,29 @@ public class CalculadoraView extends JPanel {
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String expressao = textFieldEntrada.getText();
-				Validar validador = new Validar(expressao);
 				
-				try {
-					boolean ok = validador.valida();
-					String resultado = "" + ok;
-					textFieldSaida.setText(resultado);
-					
-					if (ok == false) {
-						JOptionPane.showMessageDialog(null, "Expressão inválida!", "", JOptionPane.ERROR_MESSAGE);
+				if (expressao.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Expressão não informada!", "", JOptionPane.ERROR_MESSAGE);
+				}
+				else {
+					try {
+						Validar validador = new Validar(expressao);
+						boolean ok = validador.valida();
+						String resultado = "" + ok;
+						textFieldSaida.setText(resultado);
+											
+						if (ok == false) {
+							JOptionPane.showMessageDialog(null, "Expressão inválida!", "", JOptionPane.ERROR_MESSAGE);
+						}
+						
+						Converter infixaPosfixa = new Converter (textFieldEntrada.getText());
+						infixaPosfixa.converterInfixaPosFixa();
+						textFieldSaida.setText(infixaPosfixa.retornaExpressaoPosFixa());
+						
+					} catch(Exception e) {
+						System.err.println(e);
+						JOptionPane.showMessageDialog(null, "Erro ao calcular expressão.", "", JOptionPane.ERROR_MESSAGE);
 					}
-					
-					Converter infixaPosfixa = new Converter (textFieldEntrada.getText());
-					infixaPosfixa.converterInfixaPosFixa();
-					textFieldSaida.setText(infixaPosfixa.retornaExpressaoPosFixa());
-					
-				} catch(Exception e) {
-					System.err.println(e);
-					JOptionPane.showMessageDialog(null, "Erro ao calcular expressão.", "", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

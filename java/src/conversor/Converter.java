@@ -8,8 +8,8 @@ public class Converter {
 
 	String expressao;
 	String[] segmentosExpresao;
-	PilhaDeOperadores pilhaDeOperadores;
-	FilaSaida filaSaida;
+	PilhaDeOperadores pilhaDeOperadores = new PilhaDeOperadores();
+	FilaSaida filaSaida = new FilaSaida();;
 	
 	public Converter(String expressao) {
 		this.expressao =  expressao;
@@ -23,12 +23,10 @@ public class Converter {
 			Character caracter = elemento.charAt(0);
 			
 			if (caracter == '(') {
-				// TODO: FAZER FUNCIONAR pilhaDeOperadores.insere(elemento);
-				System.out.println(caracter);
+				pilhaDeOperadores.insere(elemento);
 			}
 			else if (caracter == 'T' || caracter == 'F') {
-				// TODO: FAZER FUNCIONAR  filaSaida.insere(elemento);
-				System.out.println(caracter);
+				filaSaida.insere(elemento);
 			}
 			else if (caracter == '~' || caracter == '^' || caracter == 'v' || caracter == '-' || caracter == '<') {
 				System.out.println(caracter);

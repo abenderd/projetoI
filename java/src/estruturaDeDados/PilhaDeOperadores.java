@@ -2,7 +2,7 @@ package estruturaDeDados;
 
 public class PilhaDeOperadores {
 	private String[] pilhaOperadores; 
-	private int topo;
+	private int topo = 0;
 
 	public PilhaDeOperadores(){
 		pilhaOperadores = new String[100]; //numero maximo de caracteres por ser vetor
@@ -13,7 +13,8 @@ public class PilhaDeOperadores {
 		if(cheia()) throw new Exception("Pilha Cheia");
 		else{
 			pilhaOperadores[topo] = s;
-			topo ++;			
+			System.out.println("PilhaOperadores " + pilhaOperadores[topo]);
+			topo ++;
 		}
 	}
 	
