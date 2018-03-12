@@ -14,8 +14,8 @@ public class Converter {
 	}
 
 	public void converterInfixaPosFixa() {
-		expressao = removeEspacos();
-		
+		String[] expressaoQuebrada = quebraExpressao();
+		System.out.println(expressaoQuebrada);
 		
 		/*for (int i = 0; i < expressao.length(); i++) {
 			if (expressao.charAt(i) == '(') {
@@ -33,7 +33,8 @@ public class Converter {
 
 
 	public String[] quebraExpressao() {
-		expressao = expressao.replaceAll(" ", "");
+		expressao = expressao.replaceAll(" ", "").replaceAll("", " ");
+		expressao = removeEspacos();
         return expressao.split(" ");
 	}
 	
@@ -43,7 +44,6 @@ public class Converter {
 	}
 	
 	public String retornaExpressaoPosFixa() {
-		System.out.println(expressao);
 		return "" + expressao;
 	}
 }
