@@ -67,7 +67,7 @@ public class CalculadoraView extends JPanel {
 					
 				} catch(Exception e) {
 					System.err.println(e);
-					JOptionPane.showMessageDialog(null, "Expressão inválida!", "", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Erro ao calcular expressão.", "", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});

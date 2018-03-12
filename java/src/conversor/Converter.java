@@ -8,26 +8,32 @@ public class Converter {
 
 	String expressao;
 	String[] segmentosExpresao;
-
+	PilhaDeOperadores pilhaDeOperadores;
+	FilaSaida filaSaida;
+	
 	public Converter(String expressao) {
 		this.expressao =  expressao;
 	}
 
-	public void converterInfixaPosFixa() {
+	public void converterInfixaPosFixa() throws Exception {
 		String[] expressaoQuebrada = quebraExpressao();
-		System.out.println(expressaoQuebrada);
 		
-		/*for (int i = 0; i < expressao.length(); i++) {
-			if (expressao.charAt(i) == '(') {
-				//elementos.inserePilha(i);
+		for (int i = 0; i < expressaoQuebrada.length-1; i++) {
+			String elemento = expressaoQuebrada[i];
+			Character caracter = elemento.charAt(0);
+			
+			if (caracter == '(') {
+				// TODO: FAZER FUNCIONAR pilhaDeOperadores.insere(elemento);
+				System.out.println(caracter);
 			}
-			else  if (expressao.charAt(i) == 'T' || expressao.charAt(i) == 'F') {
-				//elementos.insereFilaSaida(i);
+			else if (caracter == 'T' || caracter == 'F') {
+				// TODO: FAZER FUNCIONAR  filaSaida.insere(elemento);
+				System.out.println(caracter);
 			}
-			else if (expressao.charAt(i) == '~' || expressao.charAt(i) == '^' || expressao.charAt(i) == 'v' || expressao.charAt(i) == '-' || expressao.charAt(i) == '<') {
-				
+			else if (caracter == '~' || caracter == '^' || caracter == 'v' || caracter == '-' || caracter == '<') {
+				System.out.println(caracter);
 			}
-		}*/
+		}
 		
 	}
 
@@ -35,7 +41,7 @@ public class Converter {
 	public String[] quebraExpressao() {
 		expressao = expressao.replaceAll(" ", "").replaceAll("", " ");
 		expressao = removeEspacos();
-        return expressao.split(" ");
+        return expressao.split("");
 	}
 	
 	public String removeEspacos() {
