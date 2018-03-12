@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JTextField;
 
+import conversor.Converter;
 import validadorExpressao.Validar;
 
 import javax.swing.JLabel;
@@ -54,12 +55,15 @@ public class CalculadoraView extends JPanel {
 				try {
 					boolean ok = validador.valida();
 					String resultado = "" + ok;
-					System.out.println(ok);
 					textFieldSaida.setText(resultado);
 					
 					if (ok == false) {
 						JOptionPane.showMessageDialog(null, "Expressão inválida!", "", JOptionPane.ERROR_MESSAGE);
 					}
+					
+					Converter infixaPosfixa = new Converter (textFieldEntrada.getText());
+					infixaPosfixa.converterInfixaPosFixa();
+					textFieldSaida.setText(infixaPosfixa.retornaExpressaoPosFixa());
 					
 				} catch(Exception e) {
 					System.err.println(e);
