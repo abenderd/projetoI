@@ -29,7 +29,15 @@ public class Converter {
 				filaSaida.insere(elemento);
 			}
 			else if (caracter == '~' || caracter == '^' || caracter == 'v' || caracter == '-' || caracter == '<') {
-				System.out.println(caracter);
+				switch (caracter) {
+					case 'v': {
+						if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+							pilhaDeOperadores.insere(elemento);
+						}							
+						break;	
+					}
+					
+				}
 			}
 		}
 		

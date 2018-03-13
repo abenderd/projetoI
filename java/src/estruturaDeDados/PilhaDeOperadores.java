@@ -35,4 +35,13 @@ public class PilhaDeOperadores {
 		if (topo == pilhaOperadores.length) return true;
 		return false;
 	}
+	
+	public String getUltimoElemento() {
+		for (int i = pilhaOperadores.length; i >= 0; i--) {
+			
+			String ultimo = pilhaOperadores[pilhaOperadores.length];
+			
+			return ultimo;
+		}
+	}
 }
