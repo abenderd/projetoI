@@ -2,7 +2,7 @@ package estruturaDeDados;
 
 public class FilaSaida {
 	private String[] filaSaida; 
-	private int inicio, fim;
+	private int inicio, fim = 0;
 	
 	public FilaSaida(){
 		filaSaida = new String[100]; //numero maximo de caracteres por ser vetor
@@ -14,6 +14,7 @@ public class FilaSaida {
 		if(cheia()) throw new Exception("Lista Cheia");
 		else{
 			filaSaida[fim] = s;
+			System.out.println("FilaSaida " + filaSaida[fim] + fim);
 			fim++;
 		}
 	}
