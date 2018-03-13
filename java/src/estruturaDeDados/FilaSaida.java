@@ -47,6 +47,7 @@ public class FilaSaida {
 				filaSaida[x-1] = filaSaida[x];
 			}
 		}
+		fim--;
 	}
 
 }
