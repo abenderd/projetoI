@@ -8,11 +8,16 @@ public class Validar {
 		this.str = string;
 	}
 	
-	public boolean valida() throws Exception{
+	public String valida() throws Exception{
 		tiraEspaco();
 		converte();
 		caracterInvalido();
-		return expressao();
+		expressao();
+		 if (!expressao()) {
+			 throw new Exception("Expressão inválida.");
+		 }
+		
+		return str;
 	}
 	public void tiraEspaco(){
 		StringBuffer newstr = new StringBuffer();

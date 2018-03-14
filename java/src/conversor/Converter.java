@@ -28,34 +28,150 @@ public class Converter {
 				filaSaida.insere(elemento);
 			} else if (caracter == '~' || caracter == '^' || caracter == 'v' || caracter == '-' || caracter == '<') {
 				switch (caracter) {
+				case '(': {
+					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
+						pilhaDeOperadores.insere(elemento);
+					}
+				}
+				case '~': {
+					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
+						pilhaDeOperadores.insere(elemento);
+					}
+				}
+				case '^': {
+					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
+						pilhaDeOperadores.insere(elemento);
+					}
+				}
 				case 'v': {
 					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
 						pilhaDeOperadores.insere(elemento);
-					} 
-					else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
 						pilhaDeOperadores.retira();
 						filaSaida.insere(elemento);
-					}
-					else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
 						pilhaDeOperadores.retira();
 						filaSaida.insere(elemento);
-					}
-					else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
 						pilhaDeOperadores.retira();
 						filaSaida.insere(elemento);
-					}
-					else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
 						pilhaDeOperadores.insere(elemento);
-					}
-					else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
 						pilhaDeOperadores.insere(elemento);
-					}
-					else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
 						pilhaDeOperadores.insere(elemento);
 					}
 					break;
 				}
-
+				case '-': {
+					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
+						pilhaDeOperadores.insere(elemento);
+					}
+					break;
+				}
+				case '<': {
+					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
+						pilhaDeOperadores.insere(elemento);
+					}
+					break;
+				}
+				case ')': {
+					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
+						pilhaDeOperadores.retira();
+						filaSaida.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
+						pilhaDeOperadores.insere(elemento);
+					}
+					break;
+				}
 				}
 			}
 		}

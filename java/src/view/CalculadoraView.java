@@ -57,21 +57,15 @@ public class CalculadoraView extends JPanel {
 				else {
 					try {
 						Validar validador = new Validar(expressao);
-						boolean ok = validador.valida();
-						String resultado = "" + ok;
-						textFieldSaida.setText(resultado);
-											
-						if (ok == false) {
-							JOptionPane.showMessageDialog(null, "Expressão inválida!", "", JOptionPane.ERROR_MESSAGE);
-						}
-						
+						expressao = validador.valida();
+	
 						Converter infixaPosfixa = new Converter (textFieldEntrada.getText());
 						infixaPosfixa.converterInfixaPosFixa();
 						textFieldSaida.setText(infixaPosfixa.retornaExpressaoPosFixa());
 						
 					} catch(Exception e) {
 						System.err.println(e);
-						JOptionPane.showMessageDialog(null, "Erro ao calcular expressão.", "", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, e, "", JOptionPane.ERROR_MESSAGE);
 					}
 				}
 			}
