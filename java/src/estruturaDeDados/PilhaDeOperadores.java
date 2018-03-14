@@ -23,7 +23,13 @@ public class PilhaDeOperadores {
 		if (vazia())
 			throw new Exception("Pilha Vazia");
 		else {
-			topo--;
+			for (int i = pilhaOperadores.length - 1; i >= 0; i--) {
+				if (pilhaOperadores[i] != null) {
+					pilhaOperadores[topo] = pilhaOperadores[i];
+					topo--;
+				}
+			}
+			System.out.println("Removendo " + pilhaOperadores[topo]);
 			return pilhaOperadores[topo];
 		}
 	}

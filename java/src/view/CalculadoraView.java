@@ -59,7 +59,7 @@ public class CalculadoraView extends JPanel {
 						Validar validador = new Validar(expressao);
 						expressao = validador.valida();
 	
-						Converter infixaPosfixa = new Converter (textFieldEntrada.getText());
+						Converter infixaPosfixa = new Converter (expressao);
 						infixaPosfixa.converterInfixaPosFixa();
 						textFieldSaida.setText(infixaPosfixa.retornaExpressaoPosFixa());
 						
