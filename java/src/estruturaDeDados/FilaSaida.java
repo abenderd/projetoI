@@ -48,6 +48,7 @@ public class FilaSaida {
 			}
 			fim--;
 		}
+		fim--;
 	}
 
 }
