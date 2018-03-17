@@ -29,7 +29,9 @@ public class Converter {
 			} else if (caracter == '~' || caracter == '^' || caracter == 'v' || caracter == '-' || caracter == '<') {
 				switch (caracter) {
 				case '(': {
-					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+					if (pilhaDeOperadores.getUltimoElemento() == null) {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
 						pilhaDeOperadores.insere(elemento);
 					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
 						pilhaDeOperadores.insere(elemento);
@@ -44,9 +46,12 @@ public class Converter {
 					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
 						pilhaDeOperadores.insere(elemento);
 					}
+					break;
 				}
 				case '~': {
-					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+					if (pilhaDeOperadores.getUltimoElemento() == null) {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
 						pilhaDeOperadores.insere(elemento);
 					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
 						pilhaDeOperadores.insere(elemento);
@@ -61,9 +66,12 @@ public class Converter {
 					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
 						pilhaDeOperadores.insere(elemento);
 					}
+					break;
 				}
 				case '^': {
-					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+					if (pilhaDeOperadores.getUltimoElemento() == null) {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
 						pilhaDeOperadores.insere(elemento);
 					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
 						pilhaDeOperadores.retira();
@@ -80,9 +88,12 @@ public class Converter {
 					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
 						pilhaDeOperadores.insere(elemento);
 					}
+					break;
 				}
 				case 'v': {
-					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+					if (pilhaDeOperadores.getUltimoElemento() == null) {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
 						pilhaDeOperadores.insere(elemento);
 					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
 						pilhaDeOperadores.retira();
@@ -103,7 +114,9 @@ public class Converter {
 					break;
 				}
 				case '-': {
-					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+					if (pilhaDeOperadores.getUltimoElemento() == null) {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
 						pilhaDeOperadores.insere(elemento);
 					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
 						pilhaDeOperadores.retira();
@@ -126,7 +139,9 @@ public class Converter {
 					break;
 				}
 				case '<': {
-					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+					if (pilhaDeOperadores.getUltimoElemento() == null) {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
 						pilhaDeOperadores.insere(elemento);
 					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
 						pilhaDeOperadores.retira();
@@ -149,7 +164,9 @@ public class Converter {
 					break;
 				}
 				case ')': {
-					if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+					if (pilhaDeOperadores.getUltimoElemento() == null) {
+						pilhaDeOperadores.insere(elemento);
+					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
 						pilhaDeOperadores.retira();
 						filaSaida.insere(elemento);
 					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
