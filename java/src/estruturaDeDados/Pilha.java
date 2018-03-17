@@ -1,25 +1,26 @@
 package estruturaDeDados;
 
-public class PilhaDeOperadores {
+public class Pilha {
 	private String[] pilhaOperadores;
-	private int topo = 0;
+	private int topo;
 
-	public PilhaDeOperadores() {
-		pilhaOperadores = new String[100]; // numero maximo de caracteres por ser vetor
-		topo = 0;
+	public Pilha(int tamanho) {
+		pilhaOperadores = new String[tamanho];
+		topo = -1;
 	}
 
 	public void insere(String s) throws Exception {
 		if (cheia())
 			throw new Exception("Pilha Cheia");
 		else {
-			pilhaOperadores[topo] = s;
-			System.out.println("PilhaOperadores " + pilhaOperadores[topo]);
 			topo++;
+			pilhaOperadores[topo] = s;
+			System.out.println("Pilha insere " + pilhaOperadores[topo]);
+			
 		}
 	}
 
-	public String retira() throws Exception {
+	/*public String retira() throws Exception {
 		if (vazia())
 			throw new Exception("Pilha Vazia");
 		else {
@@ -32,10 +33,19 @@ public class PilhaDeOperadores {
 			System.out.println("Removendo " + pilhaOperadores[topo]);
 			return pilhaOperadores[topo];
 		}
+	}*/
+	
+	public String retira() throws Exception {
+		if(vazia()) throw new Exception("Pilha Vazia");
+		else{
+			topo --;
+			System.out.println("Pilha retira " + pilhaOperadores[topo+1]);
+			return pilhaOperadores[topo+1];
+		}
 	}
 
 	public boolean vazia() {
-		if (topo == 0)
+		if (topo == -1)
 			return true;
 		return false;
 	}
@@ -47,13 +57,8 @@ public class PilhaDeOperadores {
 	}
 
 	public String getUltimoElemento() {
-		for (int i = pilhaOperadores.length - 1; i >= 0; i--) {
-			if (pilhaOperadores[i] != null) {
-				String ultimo = pilhaOperadores[i];
-
-				return ultimo;
-			}
-		}
-		return null;
+		if(vazia())
+			return null;
+		return pilhaOperadores[topo];
 	}
 }

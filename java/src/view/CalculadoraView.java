@@ -7,6 +7,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 
 import conversor.Converter;
+import estruturaDeDados.Fila;
+import expressaoLogica.Somador;
 import validadorExpressao.Validar;
 
 import javax.swing.JLabel;
@@ -38,7 +40,7 @@ public class CalculadoraView extends JPanel {
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textFieldEntrada.setText("");
+				textFieldEntrada.setText("( ( T v F -> T ) ^ ( T -> F ) ) -> ( ~ F <-> T )");
 				textFieldSaida.setText("");
 			}
 		});
@@ -61,8 +63,11 @@ public class CalculadoraView extends JPanel {
 	
 						Converter infixaPosfixa = new Converter (expressao);
 						infixaPosfixa.converterInfixaPosFixa();
-						textFieldSaida.setText(infixaPosfixa.retornaExpressaoPosFixa());
-						
+						Fila f = infixaPosfixa.retornaExpressaoPosFixa();
+						String teste = f.toString();
+						System.out.println(teste);
+						Somador soma = new Somador(f);
+						textFieldSaida.setText(soma.geraResultado() + "");
 					} catch(Exception e) {
 						System.err.println(e);
 						JOptionPane.showMessageDialog(null, e, "", JOptionPane.ERROR_MESSAGE);
@@ -158,7 +163,7 @@ public class CalculadoraView extends JPanel {
 		textFieldSaida = new JTextField();
 		textFieldSaida.setEditable(false);
 		textFieldSaida.setColumns(10);
-		textFieldSaida.setBounds(124, 218, 29, 20);
+		textFieldSaida.setBounds(124, 218, 44, 20);
 		add(textFieldSaida);
 		
 		JButton btnInserirEquivalencia = new JButton("<->");

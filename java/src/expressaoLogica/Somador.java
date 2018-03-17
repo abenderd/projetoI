@@ -4,11 +4,11 @@ import estruturaDeDados.*;
 
 public class Somador {
 	private String v1, v2, opl;
-	private PilhaResultado result;
-	private FilaSaida fila;
+	private Pilha result;
+	private Fila fila;
 	
-	public Somador(FilaSaida fila){
-		this.result = new PilhaResultado();
+	public Somador(Fila fila){
+		this.result = new Pilha(fila.toString().length());
 		this.fila = fila;
 	}
 	
@@ -41,6 +41,7 @@ public class Somador {
 				System.err.println(e);
 				break;
 			}
+			System.out.println("\n");
 		}
 		try {
 			switch(result.retira()){
