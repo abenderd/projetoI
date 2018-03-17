@@ -190,6 +190,9 @@ public class Converter {
 					break;
 				}
 				}
+			} else if (caracter == ')') {
+				pilhaDeOperadores.retira();
+				filaSaida.insere(elemento);
 			}
 		}
 
