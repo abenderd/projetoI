@@ -49,7 +49,6 @@ public class Fila {
 			if(x!=0){
 				filaSaida[x-1] = filaSaida[x];
 			}
-			fim--;
 		}
 		fim--;
 	}

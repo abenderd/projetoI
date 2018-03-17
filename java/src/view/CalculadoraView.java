@@ -40,7 +40,8 @@ public class CalculadoraView extends JPanel {
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textFieldEntrada.setText("( ( T v F -> T ) ^ ( T -> F ) ) -> ( ~ F <-> T )");
+				//( ( T v F -> T ) ^ ( T -> F ) ) -> ( ~ F <-> T )
+				textFieldEntrada.setText("");
 				textFieldSaida.setText("");
 			}
 		});
