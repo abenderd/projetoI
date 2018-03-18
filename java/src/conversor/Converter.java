@@ -21,115 +21,59 @@ public class Converter {
 		for (int i = 0; i < expressaoQuebrada.length; i++) {
 			String elemento = expressaoQuebrada[i];
 			Character caracter = elemento.charAt(0);
-
-			if (caracter == '(') {
+			switch (caracter) {
+			case '(': {
 				pilhaDeOperadores.insere(elemento);
-			} else if (caracter == 'T' || caracter == 'F') {
+				break;
+			}
+			case 'T': {
 				filaSaida.insere(elemento);
-			} else if (caracter == '~' || caracter == '^' || caracter == 'v' || caracter == '-' || caracter == '<') {
-				switch (caracter) {
-				case '(': {
-					if (pilhaDeOperadores.getUltimoElemento() == null) {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
-						pilhaDeOperadores.insere(elemento);
-					}
-					break;
-				}
-				case '~': {
-					if (pilhaDeOperadores.getUltimoElemento() == null) {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
-						pilhaDeOperadores.insere(elemento);
-					}
-					break;
-				}
-				case ')': {
-					if (pilhaDeOperadores.getUltimoElemento() == null) {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
-						pilhaDeOperadores.retira();
-						filaSaida.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
-						pilhaDeOperadores.retira();
-						filaSaida.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
-						pilhaDeOperadores.retira();
-						filaSaida.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
-						pilhaDeOperadores.retira();
-						filaSaida.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
-						pilhaDeOperadores.retira();
-						filaSaida.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
-						pilhaDeOperadores.retira();
-						filaSaida.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
-						pilhaDeOperadores.insere(elemento);
-					}
-					break;
-				}
-				default:{
-					if (pilhaDeOperadores.getUltimoElemento() == null) {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
-						filaSaida.insere(pilhaDeOperadores.retira());
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
-						filaSaida.insere(pilhaDeOperadores.retira());
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
-						filaSaida.insere(pilhaDeOperadores.retira());
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
-						filaSaida.insere(pilhaDeOperadores.retira());
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
-						filaSaida.insere(pilhaDeOperadores.retira());
-						pilhaDeOperadores.insere(elemento);
-					} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
-						pilhaDeOperadores.insere(elemento);
-					}
-					break;
-				}
-				}
-			} else if (caracter == ')') {
+				break;
+			}
+			case 'F': {
+				filaSaida.insere(elemento);
+				break;
+			}
+			case '~': {
+				pilhaDeOperadores.insere(elemento);
+				break;
+			}
+			case ')': {
 				Character aux = pilhaDeOperadores.retira().charAt(0);
 				while(aux != '('){
 					filaSaida.insere(aux.toString());
 					aux = pilhaDeOperadores.retira().charAt(0);
-				};
-				
+				};	
+				break;
+			}
+			default:{
+				if (pilhaDeOperadores.getUltimoElemento() == null) {
+					pilhaDeOperadores.insere(elemento);
+				} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '(') {
+					pilhaDeOperadores.insere(elemento);
+				} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '~') {
+					filaSaida.insere(pilhaDeOperadores.retira());
+					pilhaDeOperadores.insere(elemento);
+				} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '^') {
+					filaSaida.insere(pilhaDeOperadores.retira());
+					pilhaDeOperadores.insere(elemento);
+				} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == 'v') {
+					filaSaida.insere(pilhaDeOperadores.retira());
+					pilhaDeOperadores.insere(elemento);
+				} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '-') {
+					filaSaida.insere(pilhaDeOperadores.retira());
+					pilhaDeOperadores.insere(elemento);
+				} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == '<') {
+					filaSaida.insere(pilhaDeOperadores.retira());
+					pilhaDeOperadores.insere(elemento);
+				} else if (pilhaDeOperadores.getUltimoElemento().charAt(0) == ')') {
+					pilhaDeOperadores.insere(elemento);
+				}
+				break;
+			}
 			}
 		}
-		//VERIFICA SE AINDA TEM ALGO NA PILHA
+		//VERIFICA SE AINDA TEM ALGO NA PILHA **OBS: EXCECAO É ESPERADA
 		while(!pilhaDeOperadores.vazia()){
 			filaSaida.insere(pilhaDeOperadores.retira());
 		}

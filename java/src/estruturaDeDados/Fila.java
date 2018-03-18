@@ -37,6 +37,7 @@ public class Fila {
 		}
 		return false;
 	}
+	
 	public boolean cheia() {
 		if (fim == 99){
 			return true;
@@ -45,7 +46,7 @@ public class Fila {
 	}
 	
 	public void filaAnda(){
-		for (int x = 0; x <= fim; x++){
+		for (int x = 0; x < fim; x++){
 			if(x!=0){
 				filaSaida[x-1] = filaSaida[x];
 			}
@@ -55,15 +56,6 @@ public class Fila {
 
 	@Override
 	public String toString() {
-		/*ADICIONADO ENQUANTO ARRAY NAO É DINAMICO
-		int x = this.fim;
-		String retorno = "";
-		for(;x>0;x--){
-			retorno = retorno + this.filaSaida[x-1];
-		}
-		return retorno;
-		*/
-		//FIM
 		return Arrays.toString(filaSaida);
 	}
 	

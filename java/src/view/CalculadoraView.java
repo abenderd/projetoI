@@ -61,7 +61,6 @@ public class CalculadoraView extends JPanel {
 					try {
 						Validar validador = new Validar(expressao);
 						expressao = validador.valida();
-	
 						Converter infixaPosfixa = new Converter (expressao);
 						infixaPosfixa.converterInfixaPosFixa();
 						Fila f = infixaPosfixa.retornaExpressaoPosFixa();
