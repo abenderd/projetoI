@@ -80,7 +80,6 @@ public class CalculadoraView extends JPanel {
 		add(btnCalcular);
 		
 		textFieldEntrada = new JTextField();
-		textFieldEntrada.setEditable(false);
 		textFieldEntrada.setBounds(124, 187, 385, 20);
 		add(textFieldEntrada);
 		textFieldEntrada.setColumns(10);
