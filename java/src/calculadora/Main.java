@@ -2,8 +2,6 @@ package calculadora;
 
 import javax.swing.JFrame;
 
-import estruturaDeDados.Fila;
-import expressaoLogica.Somador;
 import view.CalculadoraFrame;
 
 public class Main {

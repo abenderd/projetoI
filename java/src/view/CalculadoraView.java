@@ -27,7 +27,7 @@ public class CalculadoraView extends JPanel {
 	public CalculadoraView() {
 		setBackground(new Color(245, 222, 179));
 		setLayout(null);
-		
+
 		JButton btnInserirFalse = new JButton("F");
 		btnInserirFalse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -36,11 +36,11 @@ public class CalculadoraView extends JPanel {
 		});
 		btnInserirFalse.setBounds(136, 50, 66, 23);
 		add(btnInserirFalse);
-		
+
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//( ( T v F -> T ) ^ ( T -> F ) ) -> ( ~ F <-> T )
+				// ( ( T v F -> T ) ^ ( T -> F ) ) -> ( ~ F <-> T )
 				textFieldEntrada.setText("");
 				textFieldSaida.setText("");
 			}
@@ -48,27 +48,26 @@ public class CalculadoraView extends JPanel {
 		btnLimpar.setBounds(239, 258, 97, 25);
 		btnLimpar.setFont(new Font("Sitka Text", Font.BOLD, 12));
 		add(btnLimpar);
-		
+
 		JButton btnCalcular = new JButton("Calcular");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String expressao = textFieldEntrada.getText();
-				
+
 				if (expressao.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Expressão não informada!", "", JOptionPane.ERROR_MESSAGE);
-				}
-				else {
+				} else {
 					try {
 						Validar validador = new Validar(expressao);
 						expressao = validador.valida();
-						Converter infixaPosfixa = new Converter (expressao);
+						Converter infixaPosfixa = new Converter(expressao);
 						infixaPosfixa.converterInfixaPosFixa();
 						Fila f = infixaPosfixa.retornaExpressaoPosFixa();
 						String teste = f.toString();
 						System.out.println(teste);
 						Somador soma = new Somador(f);
 						textFieldSaida.setText(soma.geraResultado() + "");
-					} catch(Exception e) {
+					} catch (Exception e) {
 						System.err.println(e);
 						JOptionPane.showMessageDialog(null, e, "", JOptionPane.ERROR_MESSAGE);
 					}
@@ -78,24 +77,25 @@ public class CalculadoraView extends JPanel {
 		btnCalcular.setBounds(369, 258, 97, 25);
 		btnCalcular.setFont(new Font("Sitka Text", Font.BOLD, 12));
 		add(btnCalcular);
-		
+
 		textFieldEntrada = new JTextField();
 		textFieldEntrada.setBounds(124, 187, 385, 20);
 		add(textFieldEntrada);
 		textFieldEntrada.setColumns(10);
-		
+
 		JLabel lblEntrada = new JLabel("Entrada:");
 		lblEntrada.setBounds(10, 190, 104, 14);
 		add(lblEntrada);
-		
+
 		JLabel lblSaida = new JLabel("Sa\u00EDda:");
 		lblSaida.setBounds(10, 221, 104, 14);
 		add(lblSaida);
-		
-		JLabel lblFormeAExpressao = new JLabel("Forme a express\u00E3o l\u00F3gica com os bot\u00F5es, ou a insira diretamente na caixa de entrada:");
+
+		JLabel lblFormeAExpressao = new JLabel(
+				"Forme a express\u00E3o l\u00F3gica com os bot\u00F5es, ou a insira diretamente na caixa de entrada:");
 		lblFormeAExpressao.setBounds(10, 11, 580, 14);
 		add(lblFormeAExpressao);
-		
+
 		JButton btnInserirDisjuncao = new JButton("v");
 		btnInserirDisjuncao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -104,7 +104,7 @@ public class CalculadoraView extends JPanel {
 		});
 		btnInserirDisjuncao.setBounds(136, 102, 66, 23);
 		add(btnInserirDisjuncao);
-		
+
 		JButton btnInserirTrue = new JButton("T");
 		btnInserirTrue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -113,7 +113,7 @@ public class CalculadoraView extends JPanel {
 		});
 		btnInserirTrue.setBounds(252, 50, 66, 23);
 		add(btnInserirTrue);
-		
+
 		JButton btnInserirConjuncao = new JButton("^");
 		btnInserirConjuncao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -122,7 +122,7 @@ public class CalculadoraView extends JPanel {
 		});
 		btnInserirConjuncao.setBounds(252, 102, 66, 23);
 		add(btnInserirConjuncao);
-		
+
 		JButton btnInserirImplicacao = new JButton("->");
 		btnInserirImplicacao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -131,7 +131,7 @@ public class CalculadoraView extends JPanel {
 		});
 		btnInserirImplicacao.setBounds(369, 102, 66, 23);
 		add(btnInserirImplicacao);
-		
+
 		JButton btnInserirNegacao = new JButton("~");
 		btnInserirNegacao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -140,7 +140,7 @@ public class CalculadoraView extends JPanel {
 		});
 		btnInserirNegacao.setBounds(136, 153, 66, 23);
 		add(btnInserirNegacao);
-		
+
 		JButton btnInserirAbreParenteses = new JButton("(");
 		btnInserirAbreParenteses.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -149,7 +149,7 @@ public class CalculadoraView extends JPanel {
 		});
 		btnInserirAbreParenteses.setBounds(252, 153, 66, 23);
 		add(btnInserirAbreParenteses);
-		
+
 		JButton btnInserirFechaParenteses = new JButton(")");
 		btnInserirFechaParenteses.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -158,13 +158,13 @@ public class CalculadoraView extends JPanel {
 		});
 		btnInserirFechaParenteses.setBounds(369, 153, 66, 23);
 		add(btnInserirFechaParenteses);
-		
+
 		textFieldSaida = new JTextField();
 		textFieldSaida.setEditable(false);
 		textFieldSaida.setColumns(10);
 		textFieldSaida.setBounds(124, 218, 44, 20);
 		add(textFieldSaida);
-		
+
 		JButton btnInserirEquivalencia = new JButton("<->");
 		btnInserirEquivalencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -173,7 +173,7 @@ public class CalculadoraView extends JPanel {
 		});
 		btnInserirEquivalencia.setBounds(369, 50, 66, 23);
 		add(btnInserirEquivalencia);
-		
+
 		JButton btnFechar = new JButton("Fechar");
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
