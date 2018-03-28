@@ -38,10 +38,8 @@ public class Validar {
 		str = str.replaceAll("->", "-");
 		str = str.replaceAll("t", "T");
 		str = str.replaceAll("t", "T");
-		str = str.replaceAll("B", "T");
 		str = str.replaceAll("f", "F");
 		str = str.replaceAll("f", "F");
-		str = str.replaceAll("A", "F");
 		str = str.replaceAll("V", "v");
 		str = str.replaceAll("âˆ¨", "v");
 		str = str.replaceAll("∨", "v");
@@ -52,7 +50,8 @@ public class Validar {
 		str = str.replaceAll("âˆ¼", "~");
 		str = str.replaceAll("Ëœ", "~");
 		str = str.replaceAll("˜", "~");
-		str = str.replaceAll("∼", "~");
+		str = str.replaceAll("∼", "M");
+		str = str.replaceAll("-", "M");
 	}
 
 	public void caracterInvalido() throws Exception {
